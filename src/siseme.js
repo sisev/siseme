@@ -1,9 +1,13 @@
 ;(function() {
 
   function apply(name) {
-    var script = document.createElement('script')
-    script.src = chrome.extension.getURL('patches/' + name + '.js')
-    document.body.appendChild(script)
+    var sdk = document.createElement('script')
+    sdk.src = chrome.extension.getURL('patch.js')
+    document.body.appendChild(sdk)
+
+    var patch = document.createElement('script')
+    patch.src = chrome.extension.getURL('patches/' + name + '.js')
+    document.body.appendChild(patch)
   }
 
   var patches = {
@@ -13,8 +17,9 @@
     , '/SISEWeb/pub/repair/studentRepairAppAction.do': 'studentRepairAppAction'
   }
 
-  console.log(location.pathname)
+  var match = patches[location.pathname]
+  if (match) apply(match)
 
-  if (patches[location.pathname]) apply(patches[location.pathname])
+  console.log(location.pathname + (match ? '[patched]' : ''))
 
 })()
