@@ -1,0 +1,20 @@
+{
+  "name": "SISEme",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "description": "SISE adapter for Chrome/Chromium",
+  "permissions": [
+    "http://class.sise.com.cn:7001/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://class.sise.com.cn:7001/*"],
+      "js": ["siseme.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "patches/*"
+  ]
+}
