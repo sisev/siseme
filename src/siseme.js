@@ -7,7 +7,8 @@
   }
 
   var patches = {
-      '/sise/login.jsp': 'login'
+      '/sise/': 'login'
+    , '/sise/login.jsp': 'login'
     , '/SISEWeb/pub/studentstatus/studentBalanceAction.do': 'studentBalanceAction'
     , '/SISEWeb/pub/repair/studentRepairAppAction.do': 'studentRepairAppAction'
   }

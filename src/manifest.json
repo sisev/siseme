@@ -1,14 +1,21 @@
 {
   "name": "SISEme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "SISE adapter for Chrome/Chromium",
+  "homepage_url": "https://github.com/xingrz/siseme",
   "permissions": [
-    "http://class.sise.com.cn:7001/"
+    "http://class.sise.com.cn:7001/",
+    "http://113.105.12.139:7001/",
+    "http://172.16.3.70:7001/"
   ],
   "content_scripts": [
     {
-      "matches": ["http://class.sise.com.cn:7001/*"],
+      "matches": [
+        "http://class.sise.com.cn:7001/*",
+        "http://113.105.12.139:7001/*",
+        "http://172.16.3.70:7001/*"
+      ],
       "js": ["siseme.js"],
       "run_at": "document_end",
       "all_frames": true
