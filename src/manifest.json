@@ -1,9 +1,14 @@
 {
   "name": "SISEme",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "manifest_version": 2,
   "description": "SISE adapter for Chrome/Chromium",
   "homepage_url": "https://github.com/xingrz/siseme",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "permissions": [
     "http://class.sise.com.cn:7001/",
     "http://113.105.12.139:7001/",
