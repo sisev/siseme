@@ -19,13 +19,35 @@
 
 ## 如何制作补丁
 
-**SISEme** 目前采取针对特定页面逐一修补的方式修复兼容问题，因此难免有漏网的页面未被修复。您可以按照下面的方法自行制作补丁：（这里假设您已经有一定的 JavaScript 基础）
+**SISEme** 采用两种策略匹配需要修补的页面（这里假设您已经有一定的 JavaScript 基础）。
+
+### 针对特定页面的修复
+
+此策略用于对特定页面中的问题进行修复。
+
+因不同权限的人在系统中可访问的模块不一样，所以难免有所遗漏。您可以按照下面的方法自行制作补丁：
 
 1. 在`patches`目录中新建一个已`.js`扩展名结尾的补丁。推荐为每一个页面建立一个主文件名相同的文件。
 2. 在`siseme.js`中增加补丁规则，一个 URL 对应一个补丁名（不用包括补丁的扩展名）。URL 可通过访问系统时检查调试台中本扩展的输出得到。
 3. 编写补丁的代码，可参考 `studentRepairAppAction` 这枚补丁的代码进行修改。扩展提供了一个 `siseme.func` 辅助方法，第一个参数是需要修补的函数名（需要是全局中的），第二个参数是一个回调函数，回传入该函数的源代码字符串，修补后返回即可。
 4. 访问对应的页面测试补丁，可观察控制台中该页面的 URL 末尾是否有`[patched]`字样已判断规则是否生效。
-5. 可选但强烈建议的，把您制作的补丁发一个 [Pull Request](https://help.github.com/articles/fork-a-repo) 给本项目，让更多人受惠 ^_^
+
+### 针对脚本修复
+
+此策略适用于修复被大量页面调用的脚本中的错误，能够避免针对逐个页面修复同样问题的重复劳动。
+
+`patches` 目录中的 `_general.js` 会被插入到每一个页面中：
+
+    // 如果页面调用了特定JS则调用回调
+    siseme.script('/SISEWeb/js/public.js', function() {
+      // 修补函数
+      siseme.func('allbuttondisabled', function(source) {
+        return source.replace(/document\.forms\((.+?)\)/ig, 'document.forms[$1]')
+      })
+    })
+
+
+假如您制作了补丁，强烈建议发一个 [Pull Request](https://help.github.com/articles/fork-a-repo) 给本项目，让更多人受惠 ^_^
 
 PS：小编也有做针对选课页面的补丁，但现在没机会测试了，等下学期的选课吧 T_T
 
