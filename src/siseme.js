@@ -12,16 +12,6 @@
     document.body.appendChild(script)
   }
 
-  function apply(name) {
-    var sdk = document.createElement('script')
-    sdk.src = chrome.extension.getURL('patch.js')
-    document.body.appendChild(sdk)
-
-    var patch = document.createElement('script')
-    patch.src = chrome.extension.getURL('patches/' + name + '.js')
-    document.body.appendChild(patch)
-  }
-
   // insert patch sdk
   insertScript('patch.js')
 
