@@ -5,6 +5,4 @@
     return 'function buttonDisabled() {}'
   })
 
-  document.form1 = document.getElementById('form1')
-
 })(window.siseme)

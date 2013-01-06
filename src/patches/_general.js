@@ -6,8 +6,8 @@
       return source.replace(/document\.forms\((.+?)\)/ig, 'document.forms[$1]')
     })
     
-    document.form1 = document.getElementById('form1')
-    
+    document.form1 = document.form1
+                  || document.getElementById('form1')
   })
 
 })(window.siseme)
