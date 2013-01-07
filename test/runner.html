@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SISEme Tests</title>
+
+  <!-- Chai -->
+  <script src="../node_modules/chai/chai.js"></script>
+  <script>var expect = chai.expect</script>
+
+  <!-- Mocha -->
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script>mocha.setup({ ui: 'bdd', globals: ['siseme', '__global_case__'] })</script>
+</head>
+<body>
+  <div id="mocha"></div>
+
+  <script src="../src/patch.js"></script>
+
+  <!-- SUITES START -->
+  <script src="test.sdk.js"></script>
+  <!-- SUITES END -->
+
+  <script>
+    if (window.mochaPhantomJS) mochaPhantomJS.run()
+    else mocha.run()
+  </script>
+</body>
+</html>

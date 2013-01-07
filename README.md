@@ -1,4 +1,4 @@
-[SISEme](https://chrome.google.com/webstore/detail/siseme/npiceomhacgepmjpbjaigilkaedhcejc)
+[SISEme](https://chrome.google.com/webstore/detail/siseme/npiceomhacgepmjpbjaigilkaedhcejc) [![Build Status](https://travis-ci.org/xingrz/siseme.png)](https://travis-ci.org/xingrz/siseme)
 ==========
 
 修复[华软学院信息管理系统](http://class.sise.com.cn:7001/sise)中的 JavaScript 错误，让它能在 Chrome/Chromium 中使用。

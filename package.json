@@ -1,0 +1,20 @@
+{
+  "name": "siseme",
+  "version": "0.3.1",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xingrz/siseme.git"
+  },
+  "author": "XiNGRZ",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": [
+    "connect",
+    "mocha-phantomjs",
+    "mocha",
+    "chai"
+  ]
+}
