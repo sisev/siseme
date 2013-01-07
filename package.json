@@ -15,6 +15,7 @@
     "connect",
     "mocha-phantomjs",
     "mocha",
-    "chai"
+    "chai",
+    "crx"
   ]
 }
