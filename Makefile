@@ -21,6 +21,20 @@ build:
 	@echo "  build/upload.zip"
 	@echo ""
 
+zip:
+	@echo ""
+	@echo "Building ${NAME} v${VERSION}"
+	@echo ""
+	@node ./tools/build.js
+	@echo "Runing pre-build script...                     ${CHECK} Done"
+	@mkdir build
+	@cd src && zip -q -r ../build/upload.zip *
+	@echo "Building zip for upload...                     ${CHECK} Done"
+	@echo ""
+	@echo "${NAME} successfully built:"
+	@echo "  build/upload.zip"
+	@echo ""
+
 test:
 	node tests/server.js &
 	${BIN}/mocha-phantomjs -R spec "http://localhost:8080/tests/runner.html"
