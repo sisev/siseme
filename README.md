@@ -15,6 +15,7 @@
 - 登录
 - 学生交费历史
 - 网上报修
+- 选课
 
 
 ## 如何制作补丁
@@ -38,18 +39,18 @@
 
 `patches` 目录中的 `_general.js` 会被插入到每一个页面中：
 
-    // 如果页面调用了特定JS则调用回调
-    siseme.script('/SISEWeb/js/public.js', function() {
-      // 修补函数
-      siseme.func('allbuttondisabled', function(source) {
-        return source.replace(/document\.forms\((.+?)\)/ig, 'document.forms[$1]')
-      })
-    })
+```js
+// 如果页面调用了特定JS则调用回调
+siseme.script('/SISEWeb/js/public.js', function() {
+  // 修补函数
+  siseme.func('allbuttondisabled', function(source) {
+    return source.replace(/document\.forms\((.+?)\)/ig, 'document.forms[$1]')
+  })
+})
+```
 
 
 假如您制作了补丁，强烈建议发一个 [Pull Request](https://help.github.com/articles/fork-a-repo) 给本项目，让更多人受惠 ^_^
-
-PS：小编也有做针对选课页面的补丁，但现在没机会测试了，等下学期的选课吧 T_T
 
 
 ## 作者
