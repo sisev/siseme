@@ -4,6 +4,7 @@
       '/sise/': 'login'
     , '/sise/login.jsp': 'login'
     , '/SISEWeb/pub/repair/studentRepairAppAction.do': 'studentRepairAppAction'
+    , '/sise/module/select_class/studentselectteam_main.jsp': 'studentselectteam_main'
   }
 
   function insertScript(path) {
