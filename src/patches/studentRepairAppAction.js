@@ -2,6 +2,7 @@
 ;(function(siseme) {
 
   siseme.func('buttonDisabled', function(source) {
+    // 太难搞了
     return 'function buttonDisabled() {}'
   })
 
