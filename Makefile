@@ -4,13 +4,13 @@ NAME=$(shell echo "console.log(require('./src/manifest.json').name)"|node)
 LOWER_NAME=$(shell echo "console.log(require('./src/manifest.json').name.toLowerCase())"|node)
 CHECK=\033[32m✔\033[39m
 
-build:
+build: deps
 	@echo ""
 	@echo "Building ${NAME} v${VERSION}"
 	@echo ""
 	@node ./tools/build.js
 	@echo "Runing pre-build script...                     ${CHECK} Done"
-	@node ${BIN}/crx pack src -f dists/${LOWER_NAME}-v${VERSION}.crx -p key.pem
+	@node ${BIN}/crx pack src -f dists/${LOWER_NAME}-v${VERSION}.crx -p ~/pems/siseme.pem
 	@echo "Building crx for distribution...               ${CHECK} Done"
 	@mkdir build
 	@cd src && zip -q -r ../build/upload.zip *
@@ -21,7 +21,7 @@ build:
 	@echo "  build/upload.zip"
 	@echo ""
 
-zip:
+zip: deps
 	@echo ""
 	@echo "Building ${NAME} v${VERSION}"
 	@echo ""
@@ -35,11 +35,14 @@ zip:
 	@echo "  build/upload.zip"
 	@echo ""
 
-test:
+test: deps
 	node tests/server.js &
 	${BIN}/mocha-phantomjs -R spec "http://localhost:8080/tests/runner.html"
 	kill -9 `cat tests/pid.txt`
 	rm tests/pid.txt
+
+deps:
+	@npm install
 
 clean:
 	rm -r build
