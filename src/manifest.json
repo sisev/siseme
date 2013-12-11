@@ -1,6 +1,6 @@
 {
   "name": "SISEme",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "manifest_version": 2,
   "description": "SISE adapter for Chrome/Chromium",
   "homepage_url": "https://github.com/xingrz/siseme",

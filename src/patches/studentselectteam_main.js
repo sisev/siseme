@@ -1,5 +1,5 @@
 // patch for: /sise/module/select_class/studentselectteam_main.jsp
-;(function(siseme) {
+!(function (siseme) {
 
   siseme.func('delclass', function(source) {
     return source.replace(/document\.forms\((.+?)\)/ig, 'document.forms[$1]')

@@ -1,7 +1,7 @@
-;(function(exports) {
+!(function (exports) {
 
   var siseme = exports.siseme = {}
-  
+
   var scripts = [].slice.call(document.scripts).map(function(el) {
     return (0 === el.src.indexOf(location.origin))
          ? el.src.substr(location.origin.length)

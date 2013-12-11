@@ -1,11 +1,11 @@
-;(function() {
+!(function () {
 
   var patches = {
-    , '/SISEWeb/pub/repair/studentRepairAppAction.do': 'studentRepairAppAction'
-    , '/sise/module/select_class/studentselectteam_main.jsp': 'studentselectteam_main'
+    '/SISEWeb/pub/repair/studentRepairAppAction.do': 'studentRepairAppAction'
+  , '/sise/module/select_class/studentselectteam_main.jsp': 'studentselectteam_main'
   }
 
-  function insertScript(path) {
+  function insertScript (path) {
     var script = document.createElement('script')
     script.src = chrome.extension.getURL(path)
     document.body.appendChild(script)
